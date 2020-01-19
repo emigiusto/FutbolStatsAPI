@@ -1,4 +1,4 @@
-use `heroku_de86678f01af14e`;
+use `heroku_454d23d39588037`;
 
 DROP TABLE IF EXISTS `jugador`;
 CREATE TABLE `jugador` (
