@@ -74,6 +74,9 @@ VALUES
 (72,'Sebastián','Vicondo','Seba Vi',null,null,null,null,null,null,null,null),
 (73,'Nicolás','Vigide','Nico V',null,null,null,null,null,null,null,null);
 
+INSERT INTO `tablafactores` VALUES 
+(1,'offpowerfactor',1);
+
 
 INSERT INTO `partidos` VALUES 
 (1,'2019-03-13',5,4,null,6),

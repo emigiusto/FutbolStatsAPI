@@ -61,3 +61,11 @@ CREATE TABLE `jugadortorneo` (
   `jugador_id` int(11) NOT NULL,
     PRIMARY KEY (`id`)
 );
+
+DROP TABLE IF EXISTS `tablafactores`;
+CREATE TABLE `tablafactores` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`nombre` varchar(70) NOT NULL,
+	`valor` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+);
