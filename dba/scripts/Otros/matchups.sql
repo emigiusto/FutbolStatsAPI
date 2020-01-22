@@ -6,7 +6,8 @@ SELECT
     jugador.apellido,
     jugador.foto,
     partidos.golesganador,
-    partidos.golesperdedor
+    partidos.golesperdedor,
+    partidos.fecha
 FROM
     jugadorresultado
         JOIN
@@ -20,7 +21,7 @@ WHERE
         FROM
             jugadorresultado
         WHERE
-            jugador_id = 5 OR jugador_id = 6
+            jugador_id = 4 OR jugador_id = 6
         GROUP BY partido_id
         HAVING COUNT(partido_id) = 2)
 ORDER BY partido_id DESC , jugador_id
