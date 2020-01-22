@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 //app.get('/players',controller.traerPlayers);
 app.get('/posiciones/:id',controller.infoTablaPosiciones);
 app.get('/players',controller.traerPlayers);
+app.get('/matchup',controller.traerPlayers);
 app.get('/',function (req, res) {
   res.send('Welcome to Geofobal Stats');
 });
