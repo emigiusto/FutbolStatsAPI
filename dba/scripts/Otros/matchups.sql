@@ -1,4 +1,5 @@
-set @p1 = 4;
+
+set @p1 = 54;
 set @p2 = 18;
 SELECT 
     jugadorresultado.resultado,
@@ -17,7 +18,7 @@ FROM
         JOIN
     partidos ON jugadorresultado.partido_id = partidos.id
 WHERE
-    (jugador_id = @p1 OR jugador_id = 54)
+    (jugador_id = @p1 OR jugador_id = @p2)
         AND jugadorresultado.partido_id IN (SELECT 
             jugadorresultado.partido_id
         FROM
@@ -25,7 +26,7 @@ WHERE
 		JOIN partidotorneo on jugadorresultado.partido_id = partidotorneo.partido_id
         JOIN torneos on partidotorneo.torneo_id = torneos.id
         WHERE
-            jugador_id = @p1 OR jugador_id = 54
+            jugador_id = @p1 OR jugador_id = @p2
 			AND torneos.tipotorneo = 'Geofobal'
         GROUP BY jugadorresultado.partido_id
         HAVING COUNT(jugadorresultado.partido_id) = 2)
