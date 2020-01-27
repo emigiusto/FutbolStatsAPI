@@ -28,8 +28,7 @@ function infoTablaPosiciones(req, res) {
 function traerMatchup(req, res) {
     var p1id = req.query.p1;
     var p2id = req.query.p2; 
-    var sql = "SELECT jugadorresultado.resultado, jugadorresultado.jugador_id, jugadorresultado.partido_id, jugador.nombre, jugador.apellido, jugador.foto, partidos.golesganador, partidos.golesperdedor,partidos.fecha FROM jugadorresultado JOIN jugador ON jugadorresultado.jugador_id = jugador.id JOIN partidos ON jugadorresultado.partido_id = partidos.id WHERE (jugador_id = "+p1id+" OR jugador_id = "+p2id+") AND jugadorresultado.partido_id IN (SELECT partido_id FROM jugadorresultado WHERE jugador_id = "+p1id+" OR jugador_id = "+p2id+" GROUP BY partido_id HAVING COUNT(partido_id) = 2) ORDER BY partido_id DESC , jugador_id"
-        
+    var sql = "SELECT jugadorresultado.resultado, jugadorresultado.jugador_id, jugadorresultado.partido_id, jugador.nombre, jugador.apellido, jugador.foto, partidos.golesganador, partidos.golesperdedor, partidos.fecha FROM jugadorresultado JOIN jugador ON jugadorresultado.jugador_id = jugador.id JOIN partidos ON jugadorresultado.partido_id = partidos.id WHERE (jugador_id = "+p1id+" OR jugador_id = "+p1id+") AND jugadorresultado.partido_id IN (SELECT jugadorresultado.partido_id FROM jugadorresultado JOIN partidotorneo on jugadorresultado.partido_id = partidotorneo.partido_id JOIN torneos on partidotorneo.torneo_id = torneos.id WHERE jugador_id = "+p1id+" OR jugador_id = "+p2id+" AND torneos.tipotorneo = 'Geofobal' GROUP BY jugadorresultado.partido_id HAVING COUNT(jugadorresultado.partido_id) = 2) ORDER BY jugadorresultado.partido_id DESC , jugador_id"
     con.query(sql, function(error, resultado, fields) {
         if (error) {
             console.log("Hubo un error en la consulta", error.message);
