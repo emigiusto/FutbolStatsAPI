@@ -16,7 +16,9 @@ SELECT 		jugadorresultado.jugador_id,
 			((SUM(if(jugadorresultado.resultado = 0, partidos.golesganador,if(jugadorresultado.resultado = 1, partidos.golesperdedor,partidos.golesganador))))/
 				(SUM(if(jugadorresultado.resultado = 1, 1, 0)) + SUM(if(jugadorresultado.resultado = 0, 1, 0)) + SUM(if(jugadorresultado.resultado = 2, 1, 0)))) as 'PAC',
 			((SUM(if(jugadorresultado.resultado = 1, 1, 0)) + SUM(if(jugadorresultado.resultado = 0, 1, 0)) + SUM(if(jugadorresultado.resultado = 2, 1, 0)))/
-				(totalpartidosalltime.totalpartidos)) as 'asistenciaalltime'
+				(totalpartidosalltime.totalpartidos)) as asistenciaalltime,
+			((SUM(if(jugadorresultado.resultado = 1, 1, 0)))/(SUM(if(jugadorresultado.resultado = 1, 1, 0)) + SUM(if(jugadorresultado.resultado = 0, 1, 0)) + SUM(if(jugadorresultado.resultado = 2, 1, 0)))) AS eficienciaalltime,
+            ((SUM(if(jugadorresultado.resultado = 1, 1, 0)) * 3 ) + SUM(if(jugadorresultado.resultado = 2, 1, 0)))/(SUM(if(jugadorresultado.resultado = 1, 1, 0)) + SUM(if(jugadorresultado.resultado = 0, 1, 0)) + SUM(if(jugadorresultado.resultado = 2, 1, 0))) as puntosporpartido
 				from jugadorresultado
                 join jugador on jugadorresultado.jugador_id = jugador.id
 				join partidotorneo on jugadorresultado.partido_id = partidotorneo.partido_id
