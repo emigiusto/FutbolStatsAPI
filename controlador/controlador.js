@@ -42,9 +42,89 @@ function traerMatchup(req, res) {
     });
 }
 
+function traerRachaPlayer(req, res) {
+    var jugadorId = req.query.jugadorId;
+    var sql =  "select partidos.fecha, jugadorresultado.resultado from partidos join jugadorresultado on partidos.id = jugadorresultado.partido_id join partidotorneo on jugadorresultado.partido_id = partidotorneo.partido_id JOIN torneos on partidotorneo.torneo_id = torneos.id WHERE jugadorresultado.jugador_id = " + jugadorId + " AND torneos.tipotorneo = 'Geofobal' order by jugadorresultado.partido_id desc"
+
+    con.query(sql, function(error, results, fields) {
+        if (error) {
+            console.log("Hubo un error en la consulta", error.message);
+            return res.status(404).send("Hubo un error en la consulta");
+        }
+
+        if (results.length>0){
+            var rachaPlayer = getRachaFromList(results)
+        } else {
+            var rachaPlayer = 0
+        }
+        
+        let response = {
+            'racha': rachaPlayer,
+            'jugadorId': jugadorId,
+        };
+
+        res.send(JSON.stringify(response));
+    });
+}
+
+
 
 module.exports = {
     infoTablaPosiciones:infoTablaPosiciones,
     traerPlayers:traerPlayers,
-    traerMatchup: traerMatchup
+    traerMatchup: traerMatchup,
+    traerRachaPlayer:traerRachaPlayer
 };
+
+
+
+// INTERNAS
+
+    //RACHA
+        function getRachaFromList(lista) {
+            //CASO EXCEPCION: PERDIÓ O GANÓ EL PRIMERO
+            if(lista.length == 1){
+                if(lista[0] == 0){
+                    return -1;
+                }
+                if(lista[0] == 1){
+                    return 1;
+                }
+            }
+
+            if (lista[0].resultado === 1) {
+                //Caso 1: gano el primero y perdio el segundo ---> Racha = 1
+                if(lista[1].resultado === 0){
+                    return 1
+                }
+                //Caso 2: gano el primero y gano el segundo ---> Seguir Calculando
+                else if(lista[1].resultado === 1){
+                    var counterRacha = 0;
+                    for (let index = 0; index < lista.length; index++) {
+                        if (lista[index].resultado === 1) {
+                            counterRacha = counterRacha + 1;
+                        } else {
+                            return counterRacha;
+
+                        }
+                    }
+                }
+            }
+            if (lista[0].resultado === 0) {
+            //Caso 3: perdio el primero y gano el segundo ---> Racha = 0
+            if(lista[1].resultado === 1){
+                    return 0
+                }
+                //Caso 4: perdio el primero y perdio el segundo ---> Seguir Calculando
+                else if(lista[1].resultado === 0){
+                    var counterRacha = 0;
+                    for (let a = 0; a < lista.length; a++) {
+                        if (lista[a].resultado === 0) {
+                            counterRacha = counterRacha - 1;
+                        } else {
+                            return counterRacha;
+                        }
+                    }
+                }
+            }
+        }

@@ -1,4 +1,4 @@
-select *
+select partidos.fecha, jugadorresultado.resultado
 from partidos
 join jugadorresultado on partidos.id = jugadorresultado.partido_id
 join partidotorneo on jugadorresultado.partido_id = partidotorneo.partido_id
