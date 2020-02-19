@@ -86,6 +86,23 @@ function ultimos20Jugador(req, res) {
     
 }
 
+//TRAE LA LISTA DE TODOS LOS TORNEOS DE TIPO X
+function traerTorneos(req, res) {
+    var tipotorneo = req.params.tipoTorneo;
+    var sql = "select * from torneos where tipotorneo =" + tipotorneo
+    con.query(sql, function(error, resultado, fields) {
+        if (error) {
+            console.log("Hubo un error en la consulta", error.message);
+            return res.status(404).send("Hubo un error en la consulta");
+        }
+        let response = {
+            'torneos': resultado
+        };
+
+        res.send(JSON.stringify(response));
+    });
+}
+
 
 
 module.exports = {
@@ -93,7 +110,8 @@ module.exports = {
     traerPlayers:traerPlayers,
     traerMatchup: traerMatchup,
     traerRachaPlayer:traerRachaPlayer,
-    ultimos20Jugador: ultimos20Jugador
+    ultimos20Jugador: ultimos20Jugador,
+    traerTorneos: traerTorneos
 };
 
 

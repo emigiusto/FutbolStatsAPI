@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 app.get('/posiciones/:id',controller.infoTablaPosiciones);
 app.get('/players',controller.traerPlayers);
 app.get('/matchup',controller.traerMatchup);
+app.get('/torneos/:tipoTorneo',controller.traerTorneos);
 app.get('/racha/:jugadorId',controller.traerRachaPlayer);
 app.get('/ultimos20/:jugadorId',controller.ultimos20Jugador);
 app.get('/',function (req, res) {
