@@ -53,7 +53,7 @@ VALUES
 (51,'Martín','Núñez','Tincho','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
 (52,'Matias','Oblak','Mati O','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
 (53,'Ezequiel','Olaizola','Eze O','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
-(54,'Julián','Olivar','Juli','../img/profiles/userdefault.jpg','El taco no','2017-11-01','Qué mal que estoy; Qué ojete que tienen; BOOKEEEEEE!!','Lo que sea necesario. Preferentemente arriba',1.78,'1992-10-03','CABA'),
+(54,'Julián','Olivar','Juli','../img/profiles/userdefault.jpg','El taco no','2017-11-01','Qué mal que estoy; Qué ojete que tienen; BOOKEEEEEE!!','En el futbol, por izquierda',1.78,'1992-10-03','CABA'),
 (55,'Aitor','Ormazabal','Aitor','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
 (56,'Fermin','Palma','Chacal','../img/profiles/userdefault.jpg','Las que terminaron en gol','2018-08-01',null,'5',1.73,'1992-03-20','La Plata'),
 (57,'Guillermo','Palmieri','Guille','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
@@ -72,8 +72,8 @@ VALUES
 (70,'Jonatan','Tobal','Jony','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
 (71,'Ezequiel','Tobal','Eze T','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
 (72,'Sebastián','Vicondo','Seba Vi','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
-(73,'Nicolás','Vigide','Nico V','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null);
-
+(73,'Nicolás','Vigide','Nico V','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
+(74,'Matias','AmigoMarcio','Matias','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null);
 
 INSERT INTO `tablafactores` VALUES 
 (1,'offpowerfactor',1);
@@ -139,7 +139,17 @@ INSERT INTO `partidos` VALUES
 (57,'2019-11-20',11,7,'Equipo ganador con sol de frente. Equipo perdedor con uno menos por lesión inmediata de Felipe N',7),
 (58,'2019-11-27',14,9,'Equipo ganador con sol de frente. Equipo perdedor con uno menos por lesión inmediata de Miguel',5),
 (59,'2019-12-04',16,9,'Equipo ganador con sol de frente la primera mitad del partido',5),
-(60,'2019-12-11',12,10,null,5);
+(60,'2019-12-11',12,10,null,5),
+
+(61,'2020-01-23',10,7,null,5),
+(62,'2020-02-05',11,4,null,7),
+(63,'2020-02-19',9,3,'Sol de frente primeros 30 min. Un jugador menos desde los 15 min (ya iba 4-0 arriba)',7),
+(64,'2020-01-10',6,1,null,6),
+(65,'2020-01-17',10,8,null,7),
+(66,'2020-01-24',8,4,null,7),
+(67,'2020-01-31',9,8,'Gol en contra de Juli con posible falta de Goyo anulable por VAR',7),
+(68,'2020-02-07',9,8,'Lluvia. Cancha con algunos charcos',5);
+
 
 INSERT INTO `jugadorresultado` VALUES 
 (1,18,35,2,2),
@@ -888,10 +898,12 @@ INSERT INTO `jugadorresultado` VALUES
 (744,45,34,2,0);
 
 INSERT INTO `torneos` VALUES 
-(1,'Geofobal 2019 1er Semestre','2019-02-28','2019-06-24','Terminado',null,'Geofobal'),
-(2,'FutbolMixto 2019 1er Semestre','2019-03-13','2019-06-28','Terminado',null,'Mixto'),
-(3,'Geofobal 2019 2do Semestre','2019-07-15','2019-12-11','Terminado',null,'Geofobal'),
-(4,'FutbolMixto 2019 2do Semestre','2019-07-05','2019-12-20','Terminado',null,'Mixto');
+(1,'Geofobal 2019 1er Semestre','2019-01-01','2019-06-30','Terminado',null,'Geofobal'),
+(2,'FutbolMixto 2019 1er Semestre','2019-01-01','2019-06-30','Terminado',null,'Mixto'),
+(3,'Geofobal 2019 2do Semestre','2019-07-01','2019-12-31','Terminado',null,'Geofobal'),
+(4,'FutbolMixto 2019 2do Semestre','2019-07-01','2019-12-31','Terminado',null,'Mixto'),
+(5,'Geofobal 2020 1er Semestre','2020-01-01','2020-06-30','Activo',null,'Geofobal'),
+(6,'FutbolMixto 2020 1er Semestre','2020-01-01','2020-06-30','Activo',null,'Mixto');
 
 INSERT INTO `partidotorneo` VALUES 
 (1,2,1),
@@ -953,7 +965,19 @@ INSERT INTO `partidotorneo` VALUES
 (57,3,57),
 (58,3,58),
 (59,3,59),
-(60,3,60);
+(60,3,60),
+
+(61,5,61),
+(62,5,62),
+(63,5,63),
+
+
+(64,6,64),
+(65,6,65),
+(66,6,66),
+(67,6,67),
+(68,6,68);
+
 
 INSERT INTO `jugadortorneo` VALUES 
 (1,2,9),
@@ -1097,4 +1121,86 @@ INSERT INTO `jugadortorneo` VALUES
 (139,3,53),
 (140,3,1),
 (141,3,14),
-(142,3,68);
+(142,3,68),
+
+(143,5,54),
+(144,5,43),
+(145,5,15),
+(146,5,57),
+(147,5,69),
+(148,5,28),
+(149,5,49),
+(150,5,34),
+(151,5,18),
+(152,5,70),
+(153,5,12),
+(154,5,16),
+(155,5,56),
+(156,5,63),
+(157,5,10),
+(158,5,52),
+(159,5,8),
+(160,5,67),
+(161,5,23),
+(162,5,55),
+(163,5,71),
+(164,5,51),
+(165,5,24),
+(166,5,73),
+(167,5,65),
+(168,5,72),
+(169,5,46),
+(170,5,7),
+(171,5,50),
+(172,5,48),
+(173,5,44),
+(174,5,42),
+(175,5,6),
+(176,5,53),
+(177,5,1),
+(178,5,14),
+(179,5,68),
+
+(180,6,9),
+(181,6,26),
+(182,6,6),
+(183,6,54),
+(184,6,19),
+(185,6,1),
+(186,6,15),
+(187,6,42),
+(188,6,34),
+(189,6,58),
+(190,6,39),
+(191,6,27),
+(192,6,36),
+(193,6,4),
+(194,6,56),
+(195,6,22),
+(196,6,43),
+(197,6,38),
+(198,6,18),
+(199,6,32),
+(200,6,37),
+(201,6,23),
+(202,6,70),
+(203,6,30),
+(204,6,64),
+(205,6,29),
+(206,6,62),
+(207,6,55),
+(208,6,40),
+(209,6,12),
+(210,6,41),
+(211,6,45),
+(212,6,60),
+(213,6,3),
+(214,6,35),
+(215,6,25),
+(216,6,8),
+(217,6,33),
+(218,6,66),
+(219,6,61),
+(220,6,65),
+(221,6,5),
+(222,6,2);
