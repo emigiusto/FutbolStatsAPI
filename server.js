@@ -6,6 +6,7 @@ var cors = require('cors');
 var controller = require('./controlador/controlador')
 var app = express();
 
+
 /*app.use(cors());*/
 
 app.use(bodyParser.urlencoded({
@@ -22,7 +23,7 @@ app.use(bodyParser.json());
 })*/
 
 app.get('/with-cors', cors(), (req, res, next) => {
-  res.json({ msg: 'WHOAH with CORS it works! 🔝 🎉' })
+  res.json({ msg: 'WHOAH with CORS it works!' })
 })
 
 //app.get('/players',controller.traerPlayers);
