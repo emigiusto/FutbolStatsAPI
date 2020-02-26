@@ -25,22 +25,6 @@ app.get('/ultimos20/:jugadorId',controller.ultimos20Jugador);
 app.get('/',function (req, res) {
   res.send('Welcome to Geofobal Stats');
 });
-/*
-app.get('/matchup',controller.traerMatchup);
-app.get('/torneos',controller.traerTorneos);
-app.get('/torneosPorId',controller.traerTorneoPorId);
-app.get('/partidosPorId',controller.traerPartidosPorId);
-app.get('/jugadorPuntos',controller.traerPuntosJugador);
-app.get('/ganadosPerdidos',controller.traerGanadosPerdidos);
-
-app.get('/playerporId',controller.traerPlayerporId);
-app.get('/rachaPlayer',controller.traerRachaPlayer);
-app.get('/duos',controller.traerduo);
-app.get('/ultimos20',controller.ultimos20Jugador);
-app.get('/resultadostorneoplayer',controller.resultadostorneosplayer);
-app.get('/mejorypeorracha',controller.mejorypeorracha);
-app.get('/awardsporplayer',controller.awardsporplayer);
-app.get('/awardsporanio',controller.awardsporanio);*/
 
 //seteamos el puerto en el cual va a escuchar los pedidos la aplicación
 var puerto = process.env.PORT || 8081;
