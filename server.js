@@ -21,6 +21,10 @@ app.use(function(req, res, next) {
   next();
 })
 
+app.get('/with-cors', cors(), (req, res, next) => {
+  res.json({ msg: 'WHOAH with CORS it works! 🔝 🎉' })
+})
+
 //app.get('/players',controller.traerPlayers);
 app.get('/posiciones/:id',controller.infoTablaPosiciones);
 app.get('/players',controller.traerPlayers);
