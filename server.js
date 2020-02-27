@@ -7,7 +7,7 @@ var controller = require('./controlador/controlador')
 var app = express();
 
 
-app.use(cors());*/
+app.use(cors());
 
 app.use(bodyParser.urlencoded({
     extended: true
