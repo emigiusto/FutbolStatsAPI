@@ -27,12 +27,12 @@ app.get('/with-cors', cors(), (req, res, next) => {
 })
 
 //app.get('/players',controller.traerPlayers);
-app.get('/posiciones/:id',controller.infoTablaPosiciones);
-app.get('/players',controller.traerPlayers);
-app.get('/matchup',controller.traerMatchup);
-app.get('/torneos/:tipoTorneo',controller.traerTorneos);
-app.get('/racha/:jugadorId',controller.traerRachaPlayer);
-app.get('/ultimos20/:jugadorId',controller.ultimos20Jugador);
+app.get('/posiciones/:id', cors(),controller.infoTablaPosiciones);
+app.get('/players', cors(),controller.traerPlayers);
+app.get('/matchup', cors(),controller.traerMatchup);
+app.get('/torneos/:tipoTorneo', cors(),controller.traerTorneos);
+app.get('/racha/:jugadorId', cors(),controller.traerRachaPlayer);
+app.get('/ultimos20/:jugadorId', cors(),controller.ultimos20Jugador);
 app.get('/',function (req, res) {
   res.send('Welcome to Geofobal Stats');
 });
