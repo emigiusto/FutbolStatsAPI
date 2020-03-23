@@ -73,8 +73,7 @@ VALUES
 (71,'Ezequiel','Tobal','Eze T','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
 (72,'Sebastián','Vicondo','Seba Vi','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
 (73,'Nicolás','Vigide','Nico V','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
-(74,'Matias','AmigoMarcio','Matias','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null),
-(75,'Lucas','Fennell','Lucas F','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null);
+(74,'Lucas','Fennell','Lucas F','../img/profiles/userdefault.jpg',null,null,null,null,null,null,null);
 
 INSERT INTO `tablafactores` VALUES 
 (1,'offpowerfactor',1);
@@ -141,7 +140,6 @@ INSERT INTO `partidos` VALUES
 (58,'2019-11-27',14,9,'Equipo ganador con sol de frente. Equipo perdedor con uno menos por lesión inmediata de Miguel',5),
 (59,'2019-12-04',16,9,'Equipo ganador con sol de frente la primera mitad del partido',5),
 (60,'2019-12-11',12,10,null,5),
-
 (61,'2020-01-23',10,7,null,5),
 (62,'2020-02-05',11,4,null,7),
 (63,'2020-02-19',9,3,'Sol de frente primeros 30 min. Un jugador menos desde los 15 min (ya iba 4-0 arriba)',7),
@@ -150,7 +148,12 @@ INSERT INTO `partidos` VALUES
 (66,'2020-01-24',8,4,null,7),
 (67,'2020-01-31',9,8,'Gol en contra de Juli con posible falta de Goyo anulable por VAR',7),
 (68,'2020-02-07',9,8,'Lluvia. Cancha con algunos charcos',5),
-(69,'2020-02-21',4,4,'Equipo de Pao con sol de frente',7);
+(69,'2020-02-21',4,4,'Equipo de Pao con sol de frente',7),
+(70,2020-02-28,8,5,null,7),
+(71,'2020-03-06',8,5,'Equipo ganador con sol de frente primeros 20 min. Gol en contra de Juli',5),
+(72,'2020-03-13',6,4,'Equipo perdedor con 1 menos primeros 20 min. Emi R llegó tarde. Gol en contra de Pelu',7),
+(73,'2020-02-26',10,9,'Equipo perdedor con sol de frente primeros 30 min. Se jugó 6 vs 6 en cancha grande',6),
+(74,'2020-03-04',9,6,'Equipo ganador con sol de frente primeros 30 min. Equipo perdedor 10 min con uno menos',7);
 
 
 
@@ -1001,7 +1004,66 @@ INSERT INTO `jugadorresultado` VALUES
 (844,35,69,2,1),
 (845,23,69,2,0),
 (846,39,69,2,0),
-(847,27,69,2,0);
+(847,27,69,2,0),
+
+(848,27,70,1,3),
+(849,11,70,1,2),
+(850,9,70,1,1),
+(851,35,70,1,1),
+(852,19,70,1,1),
+(853,39,70,1,0),
+(854,8,70,1,0),
+(855,26,70,0,2),
+(856,23,70,0,2),
+(857,34,70,0,1),
+(858,54,70,0,0),
+(859,1,70,0,0),
+(860,36,70,0,0),
+(861,36,71,1,5),
+(862,62,71,1,1),
+(863,34,71,1,1),
+(864,64,71,1,0),
+(865,22,71,1,0),
+(866,54,71,0,2),
+(867,60,71,0,2),
+(868,29,71,0,1),
+(869,58,71,0,0),
+(870,27,71,0,0),
+(871,19,72,1,3),
+(872,62,72,1,1),
+(873,74,72,1,1),
+(874,12,72,1,0),
+(875,27,72,1,0),
+(876,54,72,1,0),
+(877,39,72,1,0),
+(878,64,72,0,3),
+(879,36,72,0,1),
+(880,15,72,0,0),
+(881,23,72,0,0),
+(882,26,72,0,0),
+(883,1,72,0,0),
+(884,58,72,0,0),
+(885,43,73,1,5),
+(886,64,73,1,2),
+(887,18,73,1,2),
+(888,23,73,1,1),
+(889,12,73,0,4),
+(890,44,73,0,3),
+(891,54,73,0,1),
+(892,63,73,0,1),
+(893,28,73,0,0),
+(894,71,73,0,0),
+(895,28,74,1,3),
+(896,46,74,1,2),
+(897,56,74,1,1),
+(898,70,74,1,1),
+(899,71,74,1,0),
+(900,23,74,1,0),
+(901,54,74,0,2),
+(902,43,74,0,1),
+(903,63,74,0,1),
+(904,64,74,0,1),
+(905,34,74,0,0);
 
 
 INSERT INTO `torneos` VALUES 
@@ -1084,7 +1146,13 @@ INSERT INTO `partidotorneo` VALUES
 (66,6,66),
 (67,6,67),
 (68,6,68),
-(69,6,69);
+(69,6,69),
+(70,6,70),
+(71,6,71),
+(72,6,72),
+
+(73,5,73),
+(74,5,74);
 
 INSERT INTO `jugadortorneo` VALUES 
 (1,2,9),
